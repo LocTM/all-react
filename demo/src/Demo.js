@@ -1,11 +1,13 @@
 import {Component} from "react";
+import Inside from "./Inside";
 
 export default class Demo extends Component{
     constructor(props) {
         super(props);
         this.state = {
             name: "Tran Minh Loc",
-            class: "C1023H1"
+            class: "C1023H1",
+            isShow: true
         }
     }
     render() {
@@ -23,6 +25,14 @@ export default class Demo extends Component{
                     })
                 }}/>
                 <h2>{this.props.x}</h2>
+                {this.state.isShow && <Inside></Inside>}
+              <button onClick={() => {
+                  this.setState(state => {
+                      return{
+                          isShow: !state.isShow
+                      }
+                  })
+              }}>Click</button>
             </>
         )
     }
