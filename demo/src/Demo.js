@@ -40,12 +40,12 @@ export default class Demo extends Component{
                     <h2>{item.name} | {item.age}</h2>
                 ))}
 
-                <input type="text" onChange={(e) => {
+                <input type="text" value={this.state.inputName} onChange={(e) => {
                     this.setState({
                         inputName: e.target.value
                     })
                 }}/>
-                <input type="text" onChange={(e) => {
+                <input type="text" value={this.state.inputAge} onChange={(e) => {
                     this.setState({
                         inputAge: e.target.value
                     })
@@ -53,7 +53,9 @@ export default class Demo extends Component{
                 <button onClick={()=> {
                     this.setState((state) => {
                         return {
-                            list: [...state.list, {name: state.inputName , age: state.inputAge}]
+                            list: [...state.list, {name: state.inputName , age: state.inputAge}],
+                            inputName:"",
+                            inputAge:""
                         }
                         }
                     )
