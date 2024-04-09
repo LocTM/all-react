@@ -4,11 +4,7 @@ import Inside from "./Inside";
 export default class Demo extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-            name: "Tran Minh Loc",
-            class: "C1023H1",
-            isShow: true
-        }
+
         this.state = {
             list:[
                 {
@@ -21,23 +17,14 @@ export default class Demo extends Component{
                     age: 30,
                     score: 100
                 }
-            ]
+            ],
+            inputName: '',
+            inputAge:','
         }
     }
     render() {
         return(
             <>
-                <h1>{this.state.name} : {this.state.class}</h1>
-                <input type="text" onChange={(e) => {
-                    this.setState({
-                        name: e.target.value,
-                    })
-                }}/>
-                <input type="text" onChange={(e) => {
-                    this.setState({
-                        class: e.target.value,
-                    })
-                }}/>
                 <h2>{this.props.x}</h2>
                 {this.state.isShow && <Inside></Inside>}
               <button onClick={() => {
@@ -47,6 +34,30 @@ export default class Demo extends Component{
                       }
                   })
               }}>Click</button>
+                <hr/>
+                <hr/>
+                {this.state.list.map(item => (
+                    <h2>{item.name} | {item.age}</h2>
+                ))}
+
+                <input type="text" onChange={(e) => {
+                    this.setState({
+                        inputName: e.target.value
+                    })
+                }}/>
+                <input type="text" onChange={(e) => {
+                    this.setState({
+                        inputAge: e.target.value
+                    })
+                }}/>
+                <button onClick={()=> {
+                    this.setState((state) => {
+                        return {
+                            list: [...state.list, {name: state.inputName , age: state.inputAge}]
+                        }
+                        }
+                    )
+                }}>ADD</button>
             </>
         )
     }
