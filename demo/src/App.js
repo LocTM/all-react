@@ -8,7 +8,7 @@ function App() {
 
       <>
          {/*<FComponent></FComponent>*/}
-     <Demo></Demo>
+     <Demo x = {5}></Demo>
       </>
   );
 }

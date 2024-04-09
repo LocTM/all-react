@@ -22,6 +22,7 @@ export default class Demo extends Component{
                         class: e.target.value,
                     })
                 }}/>
+                <h2>{this.props.x}</h2>
             </>
         )
     }
