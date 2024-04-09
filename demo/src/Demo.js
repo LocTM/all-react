@@ -9,6 +9,20 @@ export default class Demo extends Component{
             class: "C1023H1",
             isShow: true
         }
+        this.state = {
+            list:[
+                {
+                    name: "Loc",
+                    age: 20,
+                    score: 100
+                },
+                {
+                    name: "Tuan Anh",
+                    age: 30,
+                    score: 100
+                }
+            ]
+        }
     }
     render() {
         return(
